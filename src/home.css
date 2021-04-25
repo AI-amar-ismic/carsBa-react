@@ -1,0 +1,54 @@
+#addNewSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 100px 30px 100px;
+    background-color: rgba(229, 235, 241, 0.849);
+}
+
+.card{
+    max-width: 230px;
+    max-height: 400px;
+    margin: 20px 36px 30px 0;
+}
+
+.carImg{
+    width: 225px;
+}
+
+#itemsSection{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 100px;
+    background-color: rgba(229, 235, 241, 0.849);
+
+}
+
+#brandYear{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 5px;
+}
+
+#priceInfo{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(197, 34, 34);;
+}
+
+.iconsSmall{
+    width: 30px;
+    color:grey;
+}
+
+#iconsSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid grey;
+    padding: 5px 0;
+}
+#brandModel{
+    color: black;
+}

@@ -1,0 +1,7 @@
+#home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(133, 144, 161);
+    color: white;
+}

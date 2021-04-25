@@ -1,0 +1,46 @@
+#searchBar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(229, 235, 241, 0.849);
+    font-size: small;
+    min-height: 60px;
+    align-items: center;
+}
+
+#loginButton{
+    display: flex;
+    margin-right: 100px;
+}
+.SearchB{
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+#menuItem{
+    height: 20px;
+    margin-top: 11px;
+}
+
+#category{
+    display: flex;
+    margin-left: 100px;
+}
+#category:hover{
+    opacity: 1;
+    background-color: rgb(197, 34, 34);
+    color: white;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+#searchField{
+    min-height: 30px;
+    min-width: 400px
+}
+.SearchB:hover{
+    opacity: 1;
+    background-color: rgb(197, 34, 34);
+    color: white;
+
+}
