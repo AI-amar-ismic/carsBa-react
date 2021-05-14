@@ -33,7 +33,7 @@ export default function AddDialog ({handleCloseDialog, open, handleCloseAndSave}
     }
     return(
         <Dialog onClose={handleCloseDialog} open={open} className="dialog">
-            <DialogTitle id="dialogTitle"> <img id='logoimg' src={logo} alt='logo'></img> <h3>Sell your Car</h3></DialogTitle>
+            <DialogTitle id="dialogTitle"> <img id='logoimg' src={logo} alt='logo'></img> <h3 id='title'>Sell your Car</h3></DialogTitle>
             <DialogContent className="addDialogContent">
                 <div className="addDialogEntries">
     

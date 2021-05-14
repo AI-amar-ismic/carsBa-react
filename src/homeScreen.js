@@ -9,6 +9,11 @@ import mileageIcon from './imgs/mileage.png'
 import fuelIcon from './imgs/fuel.png'
 import gearIcon from './imgs/gearbox.png'
 import AddDialog from './dialog.js'
+import getAllItems from './api/getAllItems.js'
+import addNewItem from './api/addNewItem.js'
+import ItemDialog from "./itemDialog.js";
+import Popover from '@material-ui/core/Popover';
+
 
 export default function Home() {
     const [items, setItems] = useState([
@@ -37,9 +42,34 @@ export default function Home() {
             year: 2017
         }
     ]);
+    const [openedItem, setOpenedItem] = useState({
+        brand: "",
+        model: "",
+        price: 0,
+        year: 0
+    });
+    
+    
     const [searchParam, setSearchParam] = useState('')
     const [filteredItems, setFilteredItems] = useState([])
     const [dialogOpen, setDialogOpen] = useState(false)
+    const [isItemDialogOpen, setIsItemDialogOpen] = useState(false)
+    const [loggedUser, setLoggedUser] = useState('amar')
+    
+
+    useEffect(()=>{
+        refreshItems();
+    },[])
+
+    const refreshItems = ()=>{
+        getAllItems().then(result=>{
+            const itemResult = result.data;
+            itemResult.forEach(element => {
+                items.push(element);
+            });
+            setFilteredItems(items);
+        })
+    }
 
     useEffect(()=>{
         setFilteredItems(items);
@@ -67,16 +97,32 @@ export default function Home() {
     const handleCloseDialog = ()=>{
         setDialogOpen(false);
     }
+    const handleCloseItemDialog = ()=>{
+        setIsItemDialogOpen(false);
+    }
+
 
     const handleCloseAndSave =(passedCar)=>{
-        items.push(passedCar);
+        addNewItem(passedCar).then(res=>{
+            refreshItems();
+        })
+        // items.push(passedCar);
         setDialogOpen(false);
+    }
+
+    const handleOpenItem = (value) => (event) =>{
+        setOpenedItem(value);
+        setIsItemDialogOpen(true);
+    }
+
+    const handleSetLoggedUser = (user) =>{
+        setLoggedUser(user);
     }
 
     return (
         <>
-            <SearchAndCategory searchParam={searchParam} handleChange={handleChange}/>
-            <HomeDiv />
+            <SearchAndCategory searchParam={searchParam} handleChange={handleChange} handleSetLoggedUser={handleSetLoggedUser}/>
+            <HomeDiv passedName='Home'/>
             <div id='addNewSection'>
                 <h2>Recently Added Cars</h2>
                 <Button variant="contained" color="secondary" id='sellButton' onClick={handleOpenDialog}>
@@ -85,7 +131,7 @@ export default function Home() {
             </div>
             <div id='itemsSection'>
                 {filteredItems.map((row, index) => (
-                    <Card className='card' raised={true} key={index}>
+                    <Card className='card' raised={true} key={index} onClick={handleOpenItem(row)}>
                         <div className="imageContainer">
                             <img src={carPhoto} alt='bookImage' className='carImg'/>
                         </div>
@@ -106,6 +152,7 @@ export default function Home() {
 
             </div>
             <AddDialog handleCloseDialog={handleCloseDialog} open={dialogOpen} handleCloseAndSave={handleCloseAndSave}/>
+            <ItemDialog handleCloseDialog={handleCloseItemDialog} open={isItemDialogOpen} openedItem={openedItem} loggedUser={loggedUser}/>
         </>
     )
 }

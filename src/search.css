@@ -44,3 +44,34 @@
     color: white;
 
 }
+
+.loginCredentialsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 15rem;
+}
+
+#logout-popover{
+    width: 20rem;
+    height: 20rem;
+}
+
+#logout-popover{
+    width: 30rem;
+    height: 40rem;
+    
+}
+
+.loginCredentialsContainer{
+    padding: 1rem;
+}
+
+.nameandpass{
+    max-width: 20rem;
+}
+.miniTextLogin{
+    font-size: small;
+    color: grey;
+    margin: 0;
+}

@@ -52,3 +52,9 @@
 #brandModel{
     color: black;
 }
+
+.MuiPaper-root.MuiCard-root.card.MuiPaper-elevation8.MuiPaper-rounded:hover{
+    cursor: pointer;
+}
+
+

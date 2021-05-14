@@ -11,7 +11,7 @@ export default function Header() {
             </div>
             <div id='mainButtons'>
                 <Link to='/' className='navItem'>Home</Link>
-                <Link to='/' className='navItem'>Cars</Link>
+                <Link to='/cars' className='navItem'>Cars</Link>
                 <Link to='/' className='navItem'>About Us</Link>
                 <Link to='/' className='navItem'>Contact Us</Link>
             </div>

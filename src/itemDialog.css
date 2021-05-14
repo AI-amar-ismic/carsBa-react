@@ -1,0 +1,162 @@
+#itemPhoto{
+    width: 25rem;
+    
+}
+
+.itemAdditionalInfo{
+    display: inline;
+}
+
+.picNamePrice{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+   
+}
+
+.singleInfoCard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    margin-bottom: 1rem;
+}
+
+.firstInfoCard{
+    margin-right: 1rem;
+}
+
+.itemAnswer{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:1.1rem;
+}
+
+.itemName{
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+#imgPaper{
+    
+    margin-bottom: 1rem;
+}
+
+.itemQuestion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgb(108, 9, 9);
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.miniText{
+    font-size: small;
+    color: grey;
+}
+
+.MuiSvgIcon-root{
+    color: rgb(108, 9, 9);
+    padding:0;  
+}
+
+.brandModelInfoSection{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 30rem;
+}
+
+#basicInfoSection{
+    max-width: 50rem;
+}
+
+.allInfoSection{
+
+}
+
+.MuiPaper-root.MuiCard-root.singleInfoCard.priceCard.MuiPaper-elevation3.MuiPaper-rounded{
+    background-color: rgb(108, 9, 9);
+    color: white;
+}
+
+#priceIcon{
+    color: white;
+}
+
+
+
+.titleContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+#closeDialogIcon{
+    width: 5rem;
+    
+    margin-top: 2rem;
+    padding:0.3rem 0;
+    color: rgb(108, 9, 9);
+}
+
+#closeDialogIcon:hover{
+    background-color: rgb(108, 9, 9);
+    color: white;
+    cursor: pointer;
+}
+
+.MuiPaper-root.MuiPaper-elevation3.MuiPaper-rounded{
+    height: max-content;
+}
+
+.MuiCardMedia-root.itemQuestion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+}
+
+.MuiList-root.MuiList-padding{
+    max-width: 13rem;
+}
+
+.smallText{
+    font-size: 0.9rem;
+    color: grey;
+    margin:0;
+}
+
+.listIcons{
+    margin-left: 1rem;
+    max-width: 5rem;
+    
+}
+
+.MuiTableCell-root.MuiTableCell-body{
+    padding:0;
+    
+}
+
+.MuiPaper-root.MuiTableContainer-root.MuiPaper-elevation1.MuiPaper-rounded{
+    max-width: 20rem;
+}
+
+.MuiFormControl-root.MuiTextField-root{
+    width: 26rem;
+    margin-bottom: 1rem;
+}
+
+.cardBorder{
+    border: 1px solid rgb(108, 9, 9);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+#priceQuestion{
+    border-right: 1px solid white;
+}
+
+

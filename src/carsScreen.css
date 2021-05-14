@@ -1,0 +1,26 @@
+.carsAndFilterContainer{
+    display: flex;
+}
+
+.carsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+
+
+}
+.filterContainer{
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+}
+
+.filterCard{
+    
+    border-radius: 3px;
+    width: 12rem;
+    height: 15rem;
+    margin-left: 6rem;
+    background-color: gray;
+    margin-top:  1.3rem;
+}
