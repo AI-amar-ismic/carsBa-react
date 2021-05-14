@@ -7,6 +7,8 @@ export default function MainRouter() {
         <div>
             <Switch>
                 <Route path='/cars'><CarsScreen/></Route>
+                <Route path='/about'><CarsScreen/></Route>
+                <Route path='/contact'><CarsScreen/></Route>
                 <Route exact path='/'><Home /></Route>
             </Switch>
         </div>

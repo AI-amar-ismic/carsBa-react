@@ -12,8 +12,8 @@ export default function Header() {
             <div id='mainButtons'>
                 <Link to='/' className='navItem'>Home</Link>
                 <Link to='/cars' className='navItem'>Cars</Link>
-                <Link to='/' className='navItem'>About Us</Link>
-                <Link to='/' className='navItem'>Contact Us</Link>
+                <Link to='/about' className='navItem'>About Us</Link>
+                <Link to='/contact' className='navItem'>Contact Us</Link>
             </div>
             <div id='lang'>
                 <p className='langSwitch'>EN</p>
