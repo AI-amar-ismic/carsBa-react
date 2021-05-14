@@ -32,6 +32,11 @@ export default function SearchAndCategory(props) {
         handleCloseLogin();
     }
 
+    const logout = () =>{
+        props.handleSetLoggedUser('');
+        handleCloseLogin();
+    }
+
     return (
         <div id='searchBar'>
             <div id='category'>
@@ -66,9 +71,10 @@ export default function SearchAndCategory(props) {
                 >
                     
                         <div className='loginCredentialsContainer'>
-                            <h4>Log In</h4>
+                            
                             {loggedUser === '' ? (
                                 <>
+                                    <h4>Log In</h4>
                                     <TextField
                                         id='username'
                                         className='nameandpass'
@@ -89,7 +95,13 @@ export default function SearchAndCategory(props) {
                                     </Button>
                                 </>
                             ) : (
-                                <p>logout</p>
+                                <>
+                                <h4>Log Out</h4>
+                                <p>Hello {loggedUser}</p>
+                                <Button variant="contained" color="secondary" id='sellButton' onClick={logout}>
+                                        Log out
+                                </Button>
+                                </>
                             )}
                         </div>
                     

@@ -13,6 +13,8 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import ItemDialog from "./itemDialog.js";
+import Button from '@material-ui/core/Button';
 
 
 
@@ -24,34 +26,31 @@ export default function CarsScreen() {
     const [loggedUser, setLoggedUser] = useState('amar')
     const [items, setItems] = useState([
         {
-            brand: "Skoda",
-            model: "Superb",
+            brand: "Audi",
+            model: "A6",
             price: 16000,
             year: 2013
         },
         {
-            brand: "Mitsubishi",
-            model: "Galant",
+            brand: "Ford",
+            model: "Focus",
             price: 5000,
             year: 2001
         },
         {
-            brand: "Cadillac",
-            model: "Escalade",
+            brand: "BMW",
+            model: "5",
             price: 70000,
             year: 2014
         },
         {
-            brand: "Lexus",
-            model: "LFA",
+            brand: "Audi",
+            model: "A8",
             price: 300000,
             year: 2017
         }
     ]);
     const [modelList,setModelList] = useState([])
-    const [audiModel, setAudiList] = useState(['A1','A3','A4','A5','A6','A7','A8']);
-    const [mercedesModel, setMercedesList] = useState(['A','B','C','E','S']);
-    const [bmwModel, setBmwList] = useState(['1','3','4','5','7']);
     
     //     {
     //         brand:'Audi',
@@ -109,34 +108,67 @@ export default function CarsScreen() {
     const handleModelFilterChange = (event) =>{
         setModelFilter(event.target.value)
     }
+    useEffect(()=>{
+        if(items.length>0){
+            let tempItems=[];
+            items.forEach(element => {
+                
+                let tempName = element.brand+' '+element.model;
+                tempName.includes(searchParam) && tempItems.push(element);
+            });
+            setFilteredItems(tempItems)
+            // const tempItems = items.filter((x)=> x.brand+' '+x.model.includes(searchParam));
+            // setFilteredItems(tempItems);
+        }
+    },[searchParam])
 
     useEffect(()=>{
-        brandFilter==='audi' && setModelList(['A1','A3','A4','A5','A6','A7','A8'])
-        brandFilter==='bmw' && setModelList(['1','3','4','5','7'])
+        setSearchParam(brandFilter)
+    },[brandFilter])
+
+    useEffect(()=>{
+        setSearchParam(brandFilter+' '+modelFilter)
+    },[modelFilter])
+
+    useEffect(()=>{
+        brandFilter==='Audi' && setModelList(['A1','A3','A4','A5','A6','A7','A8'])
+        brandFilter==='BMW' && setModelList(['1','3','4','5','7'])
 
     },[brandFilter])
+
+    const handleCloseItemDialog = ()=>{
+        setIsItemDialogOpen(false);
+    }
+
+    const clearFilter = ()=>{
+        setSearchParam('')
+        setBrandFilter('')
+    }
     return (
         <>
             <SearchAndCategory searchParam={searchParam} handleChange={handleChange} handleSetLoggedUser={handleSetLoggedUser} />
             <HomeDiv passedName='Cars' />
             <div className='carsAndFilterContainer'>
                 <div className='filterContainer'>
-                    <Card className='filterCard' elevation={3}>
+                    <Card className='filterCard'>
                         <CardContent>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">Brand</FormLabel>
                                 <RadioGroup aria-label="brand" name="brand" value={brandFilter} onChange={handleBrandFilterChange}>
-                                    <FormControlLabel value="ford" control={<Radio />} label="Ford" />
-                                    <FormControlLabel value="audi" control={<Radio />} label="Audi" />
-                                    <FormControlLabel value="bmw" control={<Radio />} label="BMW" />
-                                    <FormControlLabel value="mercedes" control={<Radio />} label="Mercedes" />
-                                    <FormControlLabel value="volkswagen" control={<Radio />} label="Volkswagen" />
+                                    <FormControlLabel value="Ford" control={<Radio />} label="Ford" />
+                                    <FormControlLabel value="Audi" control={<Radio />} label="Audi" />
+                                    <FormControlLabel value="BMW" control={<Radio />} label="BMW" />
+                                    <FormControlLabel value="Mercedes" control={<Radio />} label="Mercedes" />
+                                    <FormControlLabel value="Volkswagen" control={<Radio />} label="Volkswagen" />
                                 </RadioGroup>
                             </FormControl>
+                            <Button  id='sellButton' onClick={clearFilter}>
+                                        Clear
+                            </Button>
                         </CardContent>
                     </Card>
                     
-                    <Card className='filterCard' elevation={3}>
+                    <Card className='filterCard' >
                         <CardContent>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">Model</FormLabel>
@@ -176,6 +208,8 @@ export default function CarsScreen() {
                     ))}
                 </div>
             </div>
+            <ItemDialog handleCloseDialog={handleCloseItemDialog} open={isItemDialogOpen} openedItem={openedItem} loggedUser={loggedUser}/>
+
         </>
     )
 }

@@ -19,7 +19,7 @@
     
     border-radius: 3px;
     width: 12rem;
-    height: 15rem;
+    height: min-content;
     margin-left: 6rem;
     background-color: gray;
     margin-top:  1.3rem;
