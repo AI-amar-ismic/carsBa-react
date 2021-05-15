@@ -15,6 +15,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import ItemDialog from "./itemDialog.js";
 import Button from '@material-ui/core/Button';
+import Slider from '@material-ui/core/Slider';
 
 
 
@@ -40,18 +41,18 @@ export default function CarsScreen() {
         {
             brand: "BMW",
             model: "5",
-            price: 70000,
+            price: 30000,
             year: 2014
         },
         {
             brand: "Audi",
             model: "A8",
-            price: 300000,
+            price: 40000,
             year: 2017
         }
     ]);
-    const [modelList,setModelList] = useState([])
-    
+    const [modelList, setModelList] = useState([])
+
     //     {
     //         brand:'Audi',
     //         models:['A1','A3','A4','A5','A6','A7','A8']
@@ -84,6 +85,10 @@ export default function CarsScreen() {
     const [isItemDialogOpen, setIsItemDialogOpen] = useState(false)
     const [brandFilter, setBrandFilter] = useState('')
     const [modelFilter, setModelFilter] = useState('')
+    const [priceRangeFilter, setPriceRangeFilter] = useState([0, 500000])
+    const [yearRangeFilter, setYearRangeFilter] = useState([2000, 2021])
+
+
 
     useEffect(() => {
         setFilteredItems(items)
@@ -102,48 +107,86 @@ export default function CarsScreen() {
         setIsItemDialogOpen(true);
     }
 
-    const handleBrandFilterChange = (event) =>{
+    const handleBrandFilterChange = (event) => {
         setBrandFilter(event.target.value);
     }
-    const handleModelFilterChange = (event) =>{
+    const handleModelFilterChange = (event) => {
         setModelFilter(event.target.value)
     }
-    useEffect(()=>{
-        if(items.length>0){
-            let tempItems=[];
+    useEffect(() => {
+        if (items.length > 0) {
+            let tempItems = [];
             items.forEach(element => {
-                
-                let tempName = element.brand+' '+element.model;
+
+                let tempName = element.brand + ' ' + element.model;
                 tempName.includes(searchParam) && tempItems.push(element);
             });
             setFilteredItems(tempItems)
             // const tempItems = items.filter((x)=> x.brand+' '+x.model.includes(searchParam));
             // setFilteredItems(tempItems);
         }
-    },[searchParam])
+    }, [searchParam])
 
-    useEffect(()=>{
+    useEffect(() => {
         setSearchParam(brandFilter)
-    },[brandFilter])
+    }, [brandFilter])
 
-    useEffect(()=>{
-        setSearchParam(brandFilter+' '+modelFilter)
-    },[modelFilter])
+    useEffect(() => {
+        setSearchParam(brandFilter + ' ' + modelFilter)
+    }, [modelFilter])
 
-    useEffect(()=>{
-        brandFilter==='Audi' && setModelList(['A1','A3','A4','A5','A6','A7','A8'])
-        brandFilter==='BMW' && setModelList(['1','3','4','5','7'])
+    useEffect(() => {
+        brandFilter === 'Audi' && setModelList(['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8'])
+        brandFilter === 'BMW' && setModelList(['1', '3', '4', '5', '7'])
+        brandFilter === 'Ford' && setModelList(['Focus','Mondeo','Fiesta'])
+        brandFilter === 'Skoda' && setModelList(['Octavia','Fabia','Superb','Kodiaq','Karoq'])
+        brandFilter === 'Mercedes' && setModelList(['A-Class','B-Class','C-Class','E-Class','S-Class'])
+        brandFilter === 'Volkswagen' && setModelList(['Golf','Passat','Polo','Touareg','Tiguan'])
 
-    },[brandFilter])
+    }, [brandFilter])
 
-    const handleCloseItemDialog = ()=>{
+    const handleCloseItemDialog = () => {
         setIsItemDialogOpen(false);
     }
 
-    const clearFilter = ()=>{
+    const clearFilter = () => {
         setSearchParam('')
         setBrandFilter('')
     }
+
+    const handleChangePriceFilter = (event, newValue) =>{
+        setPriceRangeFilter(newValue)
+    }
+
+    const handleChangeYearFilter = (event,newValue) =>{
+        setYearRangeFilter(newValue)
+    }
+
+
+    useEffect(() => {
+        if(items.length>0){
+            let tempItems = [];
+            items.forEach(element => {
+                if(element.price>=priceRangeFilter[0]&&element.price<=priceRangeFilter[1]){
+                    tempItems.push(element);
+                }
+            });
+            setFilteredItems(tempItems)
+        }
+    }, [priceRangeFilter])
+
+    useEffect(() => {
+        if(items.length>0){
+            let tempItems = [];
+            items.forEach(element => {
+                if(element.year>=yearRangeFilter[0]&&element.year<=yearRangeFilter[1]){
+                    tempItems.push(element);
+                }
+            });
+            setFilteredItems(tempItems)
+        }
+    }, [yearRangeFilter])
+
     return (
         <>
             <SearchAndCategory searchParam={searchParam} handleChange={handleChange} handleSetLoggedUser={handleSetLoggedUser} />
@@ -162,22 +205,60 @@ export default function CarsScreen() {
                                     <FormControlLabel value="Volkswagen" control={<Radio />} label="Volkswagen" />
                                 </RadioGroup>
                             </FormControl>
-                            <Button  id='sellButton' onClick={clearFilter}>
-                                        Clear
+                            <Button id='sellButton' onClick={clearFilter}>
+                                Clear
                             </Button>
                         </CardContent>
                     </Card>
-                    
+
                     <Card className='filterCard' >
                         <CardContent>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">Model</FormLabel>
                                 <RadioGroup aria-label="model" name="model" value={modelFilter} onChange={handleModelFilterChange}>
-                                    {modelList.map((row,index)=>(
+                                    {modelList.map((row, index) => (
                                         <FormControlLabel value={row} control={<Radio />} label={row} />
                                     ))}
                                 </RadioGroup>
                             </FormControl>
+                        </CardContent>
+                    </Card>
+                    <Card className='filterCard' id='priceRangeFilterContainer'>
+                        <CardContent>
+                            <h4>Price</h4>
+                            <Slider
+                                value={priceRangeFilter}
+                                onChange={handleChangePriceFilter}
+                                valueLabelDisplay="auto"
+                                aria-labelledby="range-slider"
+                                id='sliderItself'
+                                color='secondary'
+                                min={1000}
+                                max={50000}
+                            />
+                            <div className='minMaxTextContainer'>
+                                <p className='minMaxText'>{priceRangeFilter[0]}</p>
+                                <p className='minMaxText'>{priceRangeFilter[1]}</p>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card className='filterCard' id='priceRangeFilterContainer'>
+                        <CardContent>
+                            <h4>Year</h4>
+                            <Slider
+                                value={yearRangeFilter}
+                                onChange={handleChangeYearFilter}
+                                valueLabelDisplay="auto"
+                                aria-labelledby="range-slider"
+                                id='sliderItself'
+                                color='secondary'
+                                min={2000}
+                                max={2021}
+                            />
+                            <div className='minMaxTextContainer'>
+                                <p className='minMaxText'>{yearRangeFilter[0]}</p>
+                                <p className='minMaxText'>{yearRangeFilter[1]}</p>
+                            </div>
                         </CardContent>
                     </Card>
                     <div className='filterCard'></div>
@@ -208,7 +289,7 @@ export default function CarsScreen() {
                     ))}
                 </div>
             </div>
-            <ItemDialog handleCloseDialog={handleCloseItemDialog} open={isItemDialogOpen} openedItem={openedItem} loggedUser={loggedUser}/>
+            <ItemDialog handleCloseDialog={handleCloseItemDialog} open={isItemDialogOpen} openedItem={openedItem} loggedUser={loggedUser} />
 
         </>
     )

@@ -24,3 +24,21 @@
     background-color: gray;
     margin-top:  1.3rem;
 }
+
+#priceRangeFilterContainer{
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.minMaxTextContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.minMaxText{
+    font-size: x-small;
+    color: gray;
+}

@@ -12,7 +12,6 @@ import AddDialog from './dialog.js'
 import getAllItems from './api/getAllItems.js'
 import addNewItem from './api/addNewItem.js'
 import ItemDialog from "./itemDialog.js";
-import Popover from '@material-ui/core/Popover';
 
 
 export default function Home() {
