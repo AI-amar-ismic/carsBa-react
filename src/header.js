@@ -6,11 +6,12 @@ import { UserContext } from "./App.js";
 import Popover from '@material-ui/core/Popover';
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
+import { AlarmAddRounded } from "@material-ui/icons";
 
 
 
 export default function Header(props) {
-    const [loggedUser, setLoggedUser] = props.loggedUser
+    const [loggedUser, setLoggedUser] = useState('')
     const [anchorEl, setAnchorEl] = useState();
     let logoutPop = anchorEl ? Boolean(anchorEl) : undefined;
 
