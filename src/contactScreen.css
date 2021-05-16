@@ -1,0 +1,38 @@
+.formContainer {
+    margin-top: 4rem;
+    margin-left: 6.5rem;
+    margin-right: 6.5rem;
+    line-height: 3rem;
+}
+
+h3 {
+    font-size: 23px;
+}
+
+#inputBox {
+    border: gray 3px solid;
+    border-radius: 5px;
+    width: 22.6rem;
+    height: 3rem;
+    font-size: 25px;
+    color: gray;
+    line-height: 3rem;
+}
+
+.messageBox {
+    border: gray 3px solid;
+    border-radius: 5px;
+    width: 81.5rem;
+    height: 13rem;
+}
+
+#submitButton {
+    height: 3rem;
+    width: 5rem;
+    font-size: large;
+}
+
+#span {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
