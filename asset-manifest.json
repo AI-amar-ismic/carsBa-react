@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/carsBa-react/static/css/main.ad905d57.chunk.css",
-    "main.js": "/carsBa-react/static/js/main.678b8cad.chunk.js",
-    "main.js.map": "/carsBa-react/static/js/main.678b8cad.chunk.js.map",
+    "main.js": "/carsBa-react/static/js/main.3eb8d665.chunk.js",
+    "main.js.map": "/carsBa-react/static/js/main.3eb8d665.chunk.js.map",
     "runtime-main.js": "/carsBa-react/static/js/runtime-main.1918492f.js",
     "runtime-main.js.map": "/carsBa-react/static/js/runtime-main.1918492f.js.map",
     "static/js/2.7eb96be4.chunk.js": "/carsBa-react/static/js/2.7eb96be4.chunk.js",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.1918492f.js",
     "static/js/2.7eb96be4.chunk.js",
     "static/css/main.ad905d57.chunk.css",
-    "static/js/main.678b8cad.chunk.js"
+    "static/js/main.3eb8d665.chunk.js"
   ]
 }
