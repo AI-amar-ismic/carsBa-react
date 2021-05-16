@@ -136,7 +136,7 @@ export default function Home() {
                         </div>
                         <div className="contentContainer">
                             <div id='brandYear'>
-                            <h3 id='brandModel'>{row.brand} {row.model}</h3>
+                            <h4 id='brandModel'>{row.brand} {row.model}</h4>
                             <p>{row.year}</p>
                             </div>
                             <p id='priceInfo'>{row.price} KM</p>

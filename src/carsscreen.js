@@ -49,7 +49,55 @@ export default function CarsScreen() {
             model: "A8",
             price: 40000,
             year: 2017
-        }
+        },
+        {
+            brand: "Mercedes",
+            model: "S-Class",
+            price: 40000,
+            year: 2015
+        },
+        {
+            brand: "Ford",
+            model: "Fiesta",
+            price: 3000,
+            year: 2001
+        },
+        {
+            brand: "Volkswagen",
+            model: "Golf",
+            price: 20000,
+            year: 2010
+        },
+        {
+            brand: "Volkswagen",
+            model: "Passat",
+            price: 25000,
+            year: 2011
+        },
+        {
+            brand: "BMW",
+            model: "3",
+            price: 18000,
+            year: 2009
+        },
+        {
+            brand: "BMW",
+            model: "3",
+            price: 23000,
+            year: 2012
+        },
+        {
+            brand: "Mercedes",
+            model: "E-Class",
+            price: 18000,
+            year: 2009
+        },
+        {
+            brand: "Volkswagen",
+            model: "Golf",
+            price: 5000,
+            year: 2002
+        },
     ]);
     const [modelList, setModelList] = useState([])
 
@@ -152,6 +200,7 @@ export default function CarsScreen() {
     const clearFilter = () => {
         setSearchParam('')
         setBrandFilter('')
+        setModelList([])
     }
 
     const handleChangePriceFilter = (event, newValue) =>{
@@ -275,7 +324,7 @@ export default function CarsScreen() {
                             </div>
                             <div className="contentContainer">
                                 <div id='brandYear'>
-                                    <h3 id='brandModel'>{row.brand} {row.model}</h3>
+                                    <h4 id='brandModel'>{row.brand} {row.model}</h4>
                                     <p>{row.year}</p>
                                 </div>
                                 <p id='priceInfo'>{row.price} KM</p>

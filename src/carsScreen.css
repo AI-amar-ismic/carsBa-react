@@ -42,3 +42,7 @@
     font-size: x-small;
     color: gray;
 }
+
+.card{
+    height: max-content;
+}

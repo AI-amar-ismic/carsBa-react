@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/carsBa-react/static/css/main.ad905d57.chunk.css",
+    "main.js": "/carsBa-react/static/js/main.678b8cad.chunk.js",
+    "main.js.map": "/carsBa-react/static/js/main.678b8cad.chunk.js.map",
+    "runtime-main.js": "/carsBa-react/static/js/runtime-main.1918492f.js",
+    "runtime-main.js.map": "/carsBa-react/static/js/runtime-main.1918492f.js.map",
+    "static/js/2.7eb96be4.chunk.js": "/carsBa-react/static/js/2.7eb96be4.chunk.js",
+    "static/js/2.7eb96be4.chunk.js.map": "/carsBa-react/static/js/2.7eb96be4.chunk.js.map",
+    "static/js/3.b7e0ee48.chunk.js": "/carsBa-react/static/js/3.b7e0ee48.chunk.js",
+    "static/js/3.b7e0ee48.chunk.js.map": "/carsBa-react/static/js/3.b7e0ee48.chunk.js.map",
+    "index.html": "/carsBa-react/index.html",
+    "static/css/main.ad905d57.chunk.css.map": "/carsBa-react/static/css/main.ad905d57.chunk.css.map",
+    "static/js/2.7eb96be4.chunk.js.LICENSE.txt": "/carsBa-react/static/js/2.7eb96be4.chunk.js.LICENSE.txt",
+    "static/media/carPhoto.e75fd67d.jpg": "/carsBa-react/static/media/carPhoto.e75fd67d.jpg",
+    "static/media/gearbox.7116a80b.png": "/carsBa-react/static/media/gearbox.7116a80b.png",
+    "static/media/logo.6ce24c58.svg": "/carsBa-react/static/media/logo.6ce24c58.svg",
+    "static/media/logo.ee611efb.jpeg": "/carsBa-react/static/media/logo.ee611efb.jpeg",
+    "static/media/mileage.661ea1ea.png": "/carsBa-react/static/media/mileage.661ea1ea.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1918492f.js",
+    "static/js/2.7eb96be4.chunk.js",
+    "static/css/main.ad905d57.chunk.css",
+    "static/js/main.678b8cad.chunk.js"
+  ]
+}
