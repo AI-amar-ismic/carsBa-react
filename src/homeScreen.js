@@ -23,22 +23,22 @@ export default function Home() {
             year: 2013
         },
         {
-            brand: "Mitsubishi",
-            model: "Galant",
-            price: 5000,
-            year: 2001
+            brand: "Volkswagen",
+            model: "Passat",
+            price: 25000,
+            year: 2011
         },
         {
-            brand: "Cadillac",
-            model: "Escalade",
-            price: 70000,
-            year: 2014
+            brand: "BMW",
+            model: "3",
+            price: 18000,
+            year: 2009
         },
         {
-            brand: "Lexus",
-            model: "LFA",
-            price: 300000,
-            year: 2017
+            brand: "Mercedes",
+            model: "E-Class",
+            price: 18000,
+            year: 2009
         }
     ]);
     const [openedItem, setOpenedItem] = useState({
@@ -102,10 +102,10 @@ export default function Home() {
 
 
     const handleCloseAndSave =(passedCar)=>{
-        addNewItem(passedCar).then(res=>{
-            refreshItems();
-        })
-        // items.push(passedCar);
+        // addNewItem(passedCar).then(res=>{
+        //     refreshItems();
+        // })
+        items.unshift(passedCar);
         setDialogOpen(false);
     }
 
@@ -129,6 +129,7 @@ export default function Home() {
                 </Button>
             </div>
             <div id='itemsSection'>
+                
                 {filteredItems.map((row, index) => (
                     <Card className='card' raised={true} key={index} onClick={handleOpenItem(row)}>
                         <div className="imageContainer">

@@ -97,7 +97,7 @@ export default function CarsScreen() {
             model: "Golf",
             price: 5000,
             year: 2002
-        },
+        }
     ]);
     const [modelList, setModelList] = useState([])
 
